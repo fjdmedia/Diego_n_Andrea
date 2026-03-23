@@ -338,6 +338,55 @@
       font-size: 1.6rem;
       color: var(--text-mid);
     }
+    .ticket-types {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .ticket-type-card {
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(221,216,208,0.9);
+      padding: 24px 32px;
+      text-align: center;
+      box-shadow: 2px 4px 12px rgba(0,0,0,0.07);
+      min-width: 200px;
+      position: relative;
+    }
+    .ticket-type-card:first-child { transform: rotate(-0.8deg); }
+    .ticket-type-card:last-child  { transform: rotate(0.6deg); }
+    .ticket-type-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+    .ticket-type-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .ticket-type-desc {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      max-width: 180px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .ticket-type-desc strong { color: var(--text); }
+    .tickets-payment {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
     .tickets-note {
       text-align: center;
       font-size: 0.78rem;
@@ -351,6 +400,41 @@
       font-weight: 500;
     }
     .tickets-note a:hover { text-decoration: underline; }
+
+    /* ── GRAND PRIZE ── */
+    #grand-prize { background: transparent; }
+    .grand-prize-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.78);
+      border: 2px dashed var(--border);
+      padding: 52px 40px;
+      text-align: center;
+      position: relative;
+      transform: rotate(-0.4deg);
+      box-shadow: 3px 5px 18px rgba(0,0,0,0.07);
+    }
+    .grand-prize-card::before {
+      content: '';
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+      width: 70px; height: 22px;
+      background: rgba(255, 215, 100, 0.44);
+      border-radius: 1px;
+    }
+    .grand-prize-soon {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: var(--brown);
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+    .grand-prize-hint {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
 
     /* ── DETAILS ── */
     #details { background: transparent; }
@@ -583,6 +667,8 @@
     .contact-detail { display: flex; gap: 12px; align-items: flex-start; justify-content: center; }
     .cdt { font-size: 0.78rem; color: var(--text-mid); text-align: left; }
     .cdt strong { color: var(--text); display: block; font-weight: 500; margin-bottom: 1px; }
+    .cdt a { color: var(--brown); text-decoration: none; font-weight: 500; }
+    .cdt a:hover { text-decoration: underline; }
 
     /* ── FOOTER ── */
     footer {
@@ -627,6 +713,7 @@
     <ul class="nav-links">
 <li><a href="#tickets">Tickets</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#grand-prize">Grand Prize</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -660,7 +747,19 @@
     <div class="section-inner">
       <p class="section-label">Get Your Tickets</p>
       <div class="rule"></div>
-      <p class="section-sub">Admission and Support tickets available now. Not sold at the door.</p>
+      <div class="ticket-types">
+        <div class="ticket-type-card">
+          <div class="ticket-type-label">Admission</div>
+          <div class="ticket-type-price">$10</div>
+          <div class="ticket-type-desc">Your entry to the party!</div>
+        </div>
+        <div class="ticket-type-card">
+          <div class="ticket-type-label">Support</div>
+          <div class="ticket-type-price">$10</div>
+          <div class="ticket-type-desc">Can't make it? Support tickets automatically enter you into a <strong>$200 Visa Gift Card Draw!</strong></div>
+        </div>
+      </div>
+      <p class="tickets-payment">We accept Cash or E-transfer</p>
       <div class="tickets-grid">
         <div class="ticket-card">
           <img src="Reference/Reference.jpg" alt="Admission Ticket" />
@@ -671,7 +770,7 @@
           <div class="ticket-caption">Support</div>
         </div>
       </div>
-      <p class="tickets-note">To purchase tickets, DM on Facebook — <a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></p>
+      <p class="tickets-note">DM on Facebook to purchase — <a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></p>
     </div>
   </section>
 
@@ -698,8 +797,8 @@
         </div>
         <div class="detail-card">
           <div class="detail-label">Entertainment</div>
-          <div class="detail-value">Live DJ</div>
-          <div class="detail-sub">All night</div>
+          <div class="detail-value">DJ Tayne</div>
+          <div class="detail-sub">Music all night</div>
         </div>
         <div class="detail-card">
           <div class="detail-label">Food</div>
@@ -711,6 +810,18 @@
           <div class="detail-value">Pre-Sale Only</div>
           <div class="detail-sub">Not sold at the door</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAND PRIZE -->
+  <section id="grand-prize">
+    <div class="section-inner">
+      <p class="section-label">Grand Prize</p>
+      <div class="rule"></div>
+      <div class="grand-prize-card">
+        <div class="grand-prize-soon">Coming Soon</div>
+        <p class="grand-prize-hint">Stay tuned — something big is on the way.</p>
       </div>
     </div>
   </section>
@@ -802,7 +913,7 @@
             <div class="cdt"><strong>Location</strong>Winakwa Community Centre, Winnipeg MB</div>
           </div>
           <div class="contact-detail">
-            <div class="cdt"><strong>Email</strong>diegoandrea2026@gmail.com</div>
+            <div class="cdt"><strong>Facebook</strong><a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></div>
           </div>
         </div>
       </div>
