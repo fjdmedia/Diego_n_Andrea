@@ -6,27 +6,32 @@
   <title>Diego & Andrea — Wedding Social</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:         #F6F1EB;
-      --bg2:        #EDE7DF;
-      --bg3:        #E4DCD2;
-      --text:       #1C1209;
-      --text-mid:   #6B5C50;
+      --bg:         #F8F7F3;
+      --bg2:        #F2F0EB;
+      --bg3:        #E8E4DC;
+      --text:       #1A0F08;
+      --text-mid:   #6A5A50;
       --text-light: #A89D94;
-      --border:     #D8D0C6;
-      --brown:      #5C2D1E;
-      --brown-mid:  rgba(92,45,30,0.1);
+      --border:     #DDD8D0;
+      --brown:      #6B2D1A;
+      --cream:      #FAF8F4;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image: url('Reference/bg-paper-ghost.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
       color: var(--text);
       line-height: 1.65;
     }
@@ -40,7 +45,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 52px;
-      background: rgba(246,241,235,0.92);
+      background: rgba(248,247,243,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -71,15 +76,20 @@
       text-align: center;
       padding: 140px 24px 100px;
       position: relative;
-      overflow: hidden;
     }
+
+    /* Tape strips on hero */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(92,45,30,0.05) 0%, transparent 70%);
+      top: 120px; left: 50%;
+      transform: translateX(-50%) rotate(-1.5deg);
+      width: 140px; height: 26px;
+      background: rgba(255, 220, 120, 0.38);
+      border-radius: 1px;
       pointer-events: none;
     }
+
     .hero-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.28em;
@@ -95,44 +105,45 @@
       margin-bottom: 16px;
     }
     .hero-names {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 700;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 32px;
-    }
-    .hero-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-    .hero-tag-pill {
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 5px 16px;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.7rem, 1.4vw, 0.85rem);
+      font-weight: 500;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--text-mid);
+      margin-bottom: 32px;
     }
-    .hero-date-block {
-      text-align: center;
-      margin-bottom: 40px;
+
+    /* Hero detail note — looks like a handwritten sticky */
+    .hero-note {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(221,216,208,0.8);
+      padding: 18px 32px;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 28px;
+      box-shadow: 2px 3px 10px rgba(0,0,0,0.07);
+      transform: rotate(-0.6deg);
+    }
+    .hero-note::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(1.5deg);
+      width: 52px; height: 20px;
+      background: rgba(255, 200, 100, 0.45);
+      border-radius: 1px;
     }
     .hero-date {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: var(--text);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       margin-bottom: 4px;
     }
     .hero-venue {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-mid);
       letter-spacing: 0.04em;
     }
@@ -142,12 +153,30 @@
       font-style: italic;
       margin-bottom: 36px;
     }
+
+    .hero-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .hero-tag-pill {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid var(--border);
+      padding: 5px 16px;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
     .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     /* ── BUTTONS ── */
     .btn-primary {
       background: var(--brown);
-      color: var(--bg);
+      color: var(--cream);
       border: none;
       padding: 13px 34px;
       font-family: 'DM Sans', sans-serif;
@@ -162,7 +191,7 @@
     }
     .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
     .btn-outline {
-      background: transparent;
+      background: rgba(255,255,255,0.6);
       color: var(--text);
       border: 1px solid var(--border);
       padding: 13px 34px;
@@ -180,18 +209,22 @@
     /* ── SECTIONS ── */
     section { padding: 88px 24px; }
     .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    /* Scrapbook sticker label */
     .section-label {
-      font-size: 0.62rem;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 8px;
+      display: inline-block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: var(--brown);
+      margin-bottom: 4px;
+      transform: rotate(-1deg);
+      display: block;
       text-align: center;
     }
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
       text-align: center;
       margin-bottom: 12px;
       color: var(--text);
@@ -206,16 +239,37 @@
     .rule { width: 36px; height: 1px; background: var(--border); margin: 14px auto 44px; }
 
     /* ── ABOUT ── */
-    #about { background: var(--bg2); }
-    .about-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-    .about-inner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
+    #about { background: rgba(244,241,236,0.82); }
+
+    .about-card {
+      max-width: 620px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(221,216,208,0.9);
+      padding: 48px 52px;
+      box-shadow: 3px 5px 18px rgba(0,0,0,0.08), -1px -1px 0 rgba(221,216,208,0.5);
+      position: relative;
+      transform: rotate(-0.4deg);
+      text-align: center;
     }
-    .about-inner p {
+    /* Tape on about card */
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+      width: 80px; height: 22px;
+      background: rgba(255, 210, 100, 0.42);
+      border-radius: 1px;
+    }
+    .about-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .about-card p {
       color: var(--text-mid);
       font-size: 0.88rem;
       margin-bottom: 14px;
@@ -223,7 +277,7 @@
     }
     .about-pill-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
     .about-pill {
-      background: var(--bg);
+      background: var(--bg2);
       border: 1px solid var(--border);
       padding: 6px 18px;
       font-size: 0.68rem;
@@ -232,20 +286,103 @@
       color: var(--text-mid);
     }
 
+    /* ── TICKETS ── */
+    #tickets { background: rgba(244,241,236,0.82); }
+
+    .tickets-grid {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .ticket-card {
+      background: #fff;
+      padding: 10px 10px 52px;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.14), 0 1px 0 rgba(0,0,0,0.06);
+      max-width: 280px;
+      width: 100%;
+      position: relative;
+      transform: rotate(-2.5deg);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .ticket-card--right {
+      transform: rotate(2deg);
+      margin-top: 28px;
+    }
+    .ticket-card:hover {
+      transform: rotate(0deg) translateY(-6px);
+      box-shadow: 8px 14px 32px rgba(0,0,0,0.18);
+      z-index: 2;
+    }
+    /* Tape on each ticket */
+    .ticket-card::before {
+      content: '';
+      position: absolute;
+      top: -13px; left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+      width: 64px; height: 22px;
+      background: rgba(255, 215, 100, 0.48);
+      border-radius: 1px;
+    }
+    .ticket-card--right::before { transform: translateX(-50%) rotate(-2deg); }
+    .ticket-card img {
+      width: 100%;
+      display: block;
+    }
+    .ticket-caption {
+      text-align: center;
+      padding-top: 12px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: var(--text-mid);
+    }
+    .tickets-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    .tickets-note a {
+      color: var(--brown);
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .tickets-note a:hover { text-decoration: underline; }
+
     /* ── DETAILS ── */
+    #details { background: transparent; }
+
     .details-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      background: var(--border);
-      gap: 1px;
-      border: 1px solid var(--border);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
     }
     .detail-card {
-      background: var(--bg);
-      padding: 36px 24px;
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(221,216,208,0.85);
+      padding: 32px 20px;
       text-align: center;
+      box-shadow: 2px 4px 14px rgba(0,0,0,0.07);
+      position: relative;
     }
-    .detail-icon { font-size: 1.4rem; margin-bottom: 12px; }
+    /* Alternate card tilts */
+    .detail-card:nth-child(odd)  { transform: rotate(-0.8deg); }
+    .detail-card:nth-child(even) { transform: rotate(0.6deg); }
+    .detail-card:hover { transform: rotate(0deg) translateY(-3px); transition: transform 0.2s; }
+
+    /* Tape corner on each detail card */
+    .detail-card::before {
+      content: '';
+      position: absolute;
+      top: -10px; left: 50%;
+      transform: translateX(-50%) rotate(1deg);
+      width: 44px; height: 16px;
+      background: rgba(255, 220, 120, 0.4);
+      border-radius: 1px;
+    }
     .detail-label {
       font-size: 0.58rem;
       letter-spacing: 0.22em;
@@ -254,45 +391,63 @@
       margin-bottom: 8px;
     }
     .detail-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
       color: var(--text);
     }
     .detail-sub { font-size: 0.68rem; color: var(--text-light); margin-top: 4px; }
 
     /* ── PRIZES ── */
-    #prizes { background: var(--bg2); }
-    .prizes-banner {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 12px 20px;
-      font-size: 0.76rem;
-      color: var(--text-mid);
-      text-align: center;
-      margin-bottom: 36px;
-      font-style: italic;
-    }
+    #prizes { background: rgba(244,241,236,0.82); }
 
-    /* Prize grid */
+    /* Polaroid grid */
     .prizes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 28px 20px;
+      padding: 8px 4px;
     }
     .prize-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      overflow: hidden;
+      background: #fff;
+      border: none;
+      padding: 10px 10px 44px;
+      box-shadow: 3px 5px 16px rgba(0,0,0,0.12), 0 1px 0 rgba(0,0,0,0.06);
       cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
       position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
+    /* Alternating polaroid tilts */
+    .prize-card:nth-child(1)  { transform: rotate(-2.2deg); }
+    .prize-card:nth-child(2)  { transform: rotate(1.5deg); }
+    .prize-card:nth-child(3)  { transform: rotate(-1deg); }
+    .prize-card:nth-child(4)  { transform: rotate(2deg); }
+    .prize-card:nth-child(5)  { transform: rotate(-1.8deg); }
+    .prize-card:nth-child(6)  { transform: rotate(1.2deg); }
+    .prize-card:nth-child(7)  { transform: rotate(-0.8deg); }
+    .prize-card:nth-child(8)  { transform: rotate(2.4deg); }
+    .prize-card:nth-child(9)  { transform: rotate(-1.5deg); }
+    .prize-card:nth-child(10) { transform: rotate(1deg); }
     .prize-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--brown);
-      box-shadow: 0 8px 28px rgba(92,45,30,0.12);
+      transform: rotate(0deg) translateY(-6px) scale(1.03);
+      box-shadow: 6px 12px 28px rgba(0,0,0,0.18);
+      z-index: 2;
     }
+
+    /* Tape on polaroids */
+    .prize-card::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(var(--tape-rot, -1deg));
+      width: 50px; height: 18px;
+      background: rgba(255, 215, 100, 0.45);
+      border-radius: 1px;
+      pointer-events: none;
+    }
+    .prize-card:nth-child(odd)  { --tape-rot: -2deg; }
+    .prize-card:nth-child(even) { --tape-rot:  1.5deg; }
+
     .prize-img {
       width: 100%;
       aspect-ratio: 9/16;
@@ -304,19 +459,29 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.35s ease;
     }
-    .prize-card:hover .prize-img img { transform: scale(1.03); }
+
+    /* Polaroid caption area */
+    .prize-caption {
+      text-align: center;
+      padding-top: 10px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.2rem;
+      color: var(--text-mid);
+      user-select: none;
+    }
+
+    /* View badge */
     .prize-tap {
       position: absolute;
-      bottom: 12px;
+      bottom: 14px;
       right: 12px;
       background: var(--brown);
-      color: var(--bg);
-      font-size: 0.58rem;
+      color: #fff;
+      font-size: 0.55rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 5px 10px;
+      padding: 4px 9px;
       opacity: 0;
       transition: opacity 0.2s;
     }
@@ -387,107 +552,70 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ── SCHEDULE ── */
-    .schedule-wrap { max-width: 560px; margin: 0 auto; }
-    .schedule-item {
-      display: flex;
-      gap: 28px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .schedule-item:last-child { border-bottom: none; }
-    .sched-time {
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      color: var(--brown);
-      min-width: 76px;
-      padding-top: 2px;
-      flex-shrink: 0;
-    }
-    .sched-event {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-    .sched-desc { font-size: 0.72rem; color: var(--text-mid); }
-
-    /* ── GALLERY ── */
-    #gallery { background: var(--bg2); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 210px);
-      gap: 6px;
-    }
-    .gallery-item {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 8px;
-      color: var(--text-light);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      overflow: hidden;
-    }
-    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
-    .gallery-item:nth-child(4) { grid-column: span 2; }
-    .gallery-icon { font-size: 1.4rem; opacity: 0.25; }
-    .gallery-label { opacity: 0.4; }
-
     /* ── CONTACT ── */
-    .contact-centered {
-      max-width: 560px;
+    #contact { background: transparent; }
+    .contact-card {
+      max-width: 500px;
       margin: 0 auto;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(221,216,208,0.9);
+      padding: 44px 48px;
+      box-shadow: 3px 5px 18px rgba(0,0,0,0.08);
+      position: relative;
+      transform: rotate(0.3deg);
       text-align: center;
     }
-    .contact-centered p {
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(-1.2deg);
+      width: 70px; height: 20px;
+      background: rgba(255, 215, 100, 0.42);
+      border-radius: 1px;
+    }
+    .contact-card p {
       color: var(--text-mid);
       font-size: 0.88rem;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
-    .contact-details { display: flex; flex-direction: column; gap: 14px; align-items: center; }
+    .contact-details { display: flex; flex-direction: column; gap: 14px; }
     .contact-detail { display: flex; gap: 12px; align-items: flex-start; justify-content: center; }
-    .cdi { font-size: 0.85rem; color: var(--brown); flex-shrink: 0; margin-top: 2px; }
     .cdt { font-size: 0.78rem; color: var(--text-mid); text-align: left; }
     .cdt strong { color: var(--text); display: block; font-weight: 500; margin-bottom: 1px; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--text);
-      padding: 48px 24px;
+      background: rgba(242,240,235,0.88);
+      border-top: 1px solid var(--border);
+      padding: 56px 24px 40px;
       text-align: center;
     }
     .footer-title {
       font-family: 'Great Vibes', cursive;
       font-size: 2.8rem;
-      color: var(--bg);
+      color: var(--brown);
       margin-bottom: 6px;
     }
     .footer-sub {
       font-size: 0.62rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(246,241,235,0.35);
+      color: var(--text-light);
       margin-bottom: 20px;
     }
-    .footer-credit { font-size: 0.62rem; color: rgba(246,241,235,0.25); }
-    .footer-credit a { color: rgba(246,241,235,0.45); text-decoration: none; }
+    .footer-credit { font-size: 0.62rem; color: var(--text-light); }
+    .footer-credit a { color: var(--text-mid); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .gallery-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: auto; }
-      .gallery-item { height: 180px; }
-      .gallery-item:first-child { grid-column: span 2; height: 240px; }
-      .gallery-item:nth-child(4) { grid-column: span 2; }
+      .prizes-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px 14px; }
       .lb-prev { left: 8px; }
       .lb-next { right: 8px; }
-      .prizes-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .about-card { padding: 36px 28px; }
+      .contact-card { padding: 36px 28px; }
     }
   </style>
 </head>
@@ -497,10 +625,9 @@
   <nav>
     <div class="nav-logo">Diego &amp; Andrea</div>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+<li><a href="#tickets">Tickets</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#prizes">Prizes</a></li>
-      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -516,7 +643,7 @@
       <span class="hero-tag-pill">Food</span>
       <span class="hero-tag-pill">Prizes</span>
     </div>
-    <div class="hero-date-block">
+    <div class="hero-note">
       <div class="hero-date">Saturday, April 25, 2026</div>
       <div class="hero-venue">Winakwa Community Centre &nbsp;·&nbsp; 8:00 PM – 1:00 AM</div>
     </div>
@@ -527,73 +654,59 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
+
+  <!-- TICKETS -->
+  <section id="tickets">
     <div class="section-inner">
-      <div class="about-inner">
-        <p class="section-label">What's a Wedding Social?</p>
-        <h3>A Manitoba tradition</h3>
-        <div class="rule"></div>
-        <p>
-          A wedding social is a pre-wedding celebration where friends, family, and the whole community
-          come together to support the couple before their big day.
-        </p>
-        <p>
-          You buy raffle tickets for a shot at awesome prizes, enjoy a 50/50 draw, grab a drink,
-          eat good food, and dance all night — all to celebrate Diego &amp; Andrea.
-        </p>
-        <p>
-          Every ticket helps the couple kick off the next chapter. Come ready to win and have a great time.
-        </p>
-        <div class="about-pill-row">
-          <span class="about-pill">Live DJ</span>
-          <span class="about-pill">Raffle Prizes</span>
-          <span class="about-pill">50/50 Draw</span>
-          <span class="about-pill">Late-Night Lunch</span>
+      <p class="section-label">Get Your Tickets</p>
+      <div class="rule"></div>
+      <p class="section-sub">Admission and Support tickets available now. Not sold at the door.</p>
+      <div class="tickets-grid">
+        <div class="ticket-card">
+          <img src="Reference/Reference.jpg" alt="Admission Ticket" />
+          <div class="ticket-caption">Admission</div>
+        </div>
+        <div class="ticket-card ticket-card--right">
+          <img src="Reference/Reference_2.jpg" alt="Support Ticket" />
+          <div class="ticket-caption">Support</div>
         </div>
       </div>
+      <p class="tickets-note">To purchase tickets, DM on Facebook — <a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></p>
     </div>
   </section>
 
   <!-- DETAILS -->
   <section id="details">
     <div class="section-inner">
-      <p class="section-label">Event Info</p>
-      <h2 class="section-title">The Details</h2>
+      <p class="section-label">The Details</p>
       <div class="rule"></div>
       <div class="details-strip">
         <div class="detail-card">
-          <div class="detail-icon">📅</div>
           <div class="detail-label">Date</div>
           <div class="detail-value">April 25, 2026</div>
           <div class="detail-sub">Saturday</div>
         </div>
         <div class="detail-card">
-          <div class="detail-icon">🕗</div>
           <div class="detail-label">Time</div>
           <div class="detail-value">8:00 PM – 1:00 AM</div>
           <div class="detail-sub">Doors open at 8:00</div>
         </div>
         <div class="detail-card">
-          <div class="detail-icon">📍</div>
           <div class="detail-label">Venue</div>
           <div class="detail-value">Winakwa Community Centre</div>
           <div class="detail-sub">Winnipeg, MB</div>
         </div>
         <div class="detail-card">
-          <div class="detail-icon">🎵</div>
           <div class="detail-label">Entertainment</div>
           <div class="detail-value">Live DJ</div>
           <div class="detail-sub">All night</div>
         </div>
         <div class="detail-card">
-          <div class="detail-icon">🍽️</div>
           <div class="detail-label">Food</div>
           <div class="detail-value">Late-Night Lunch</div>
           <div class="detail-sub">Included</div>
         </div>
         <div class="detail-card">
-          <div class="detail-icon">🎟️</div>
           <div class="detail-label">Tickets</div>
           <div class="detail-value">Pre-Sale Only</div>
           <div class="detail-sub">Not sold at the door</div>
@@ -605,49 +718,58 @@
   <!-- PRIZES -->
   <section id="prizes">
     <div class="section-inner">
-      <p class="section-label">Raffle &amp; Draws</p>
-      <h2 class="section-title">Tonight's Prizes</h2>
+      <p class="section-label">Tonight's Prizes</p>
       <div class="rule"></div>
       <p class="section-sub">Tap any prize to get a closer look.</p>
       <div class="prizes-grid" id="prizesGrid">
         <div class="prize-card" data-index="0">
           <div class="prize-img"><img src="Prizes/Prizes_1.jpg" alt="Prize 1" loading="lazy" /></div>
+          <div class="prize-caption">Prize 1</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="1">
           <div class="prize-img"><img src="Prizes/Prizes_2.jpg" alt="Prize 2" loading="lazy" /></div>
+          <div class="prize-caption">Prize 2</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="2">
           <div class="prize-img"><img src="Prizes/Prizes_3.jpg" alt="Prize 3" loading="lazy" /></div>
+          <div class="prize-caption">Prize 3</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="3">
           <div class="prize-img"><img src="Prizes/Prizes_4.jpg" alt="Prize 4" loading="lazy" /></div>
+          <div class="prize-caption">Prize 4</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="4">
           <div class="prize-img"><img src="Prizes/Prizes_5.jpg" alt="Prize 5" loading="lazy" /></div>
+          <div class="prize-caption">Prize 5</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="5">
           <div class="prize-img"><img src="Prizes/Prizes_6.jpg" alt="Prize 6" loading="lazy" /></div>
+          <div class="prize-caption">Prize 6</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="6">
           <div class="prize-img"><img src="Prizes/Prizes_7.jpg" alt="Prize 7" loading="lazy" /></div>
+          <div class="prize-caption">Prize 7</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="7">
           <div class="prize-img"><img src="Prizes/Prizes_8.jpg" alt="Prize 8" loading="lazy" /></div>
+          <div class="prize-caption">Prize 8</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="8">
           <div class="prize-img"><img src="Prizes/Prizes_9.jpg" alt="Prize 9" loading="lazy" /></div>
+          <div class="prize-caption">Prize 9</div>
           <div class="prize-tap">View</div>
         </div>
         <div class="prize-card" data-index="9">
           <div class="prize-img"><img src="Prizes/Prizes_10.jpg" alt="Prize 10" loading="lazy" /></div>
+          <div class="prize-caption">Prize 10</div>
           <div class="prize-tap">View</div>
         </div>
       </div>
@@ -665,102 +787,21 @@
     <div class="lb-counter" id="lbCounter"></div>
   </div>
 
-  <!-- SCHEDULE -->
-  <section id="schedule">
-    <div class="section-inner">
-      <p class="section-label">Night Of</p>
-      <h2 class="section-title">Evening Schedule</h2>
-      <div class="rule"></div>
-      <div class="schedule-wrap">
-        <div class="schedule-item">
-          <div class="sched-time">8:00 PM</div>
-          <div>
-            <div class="sched-event">Doors Open</div>
-            <div class="sched-desc">Get settled, grab a drink, find your seats</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">8:30 PM</div>
-          <div>
-            <div class="sched-event">Welcome &amp; Opening Toast</div>
-            <div class="sched-desc">Kick off the night celebrating Diego &amp; Andrea</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">9:00 PM</div>
-          <div>
-            <div class="sched-event">DJ Set Begins</div>
-            <div class="sched-desc">Music and dancing all night long</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">10:00 PM</div>
-          <div>
-            <div class="sched-event">First Raffle Draw</div>
-            <div class="sched-desc">50/50 and first round of prizes announced</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">11:00 PM</div>
-          <div>
-            <div class="sched-event">Late-Night Lunch</div>
-            <div class="sched-desc">Fuel up — we're not done yet</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">12:00 AM</div>
-          <div>
-            <div class="sched-event">Grand Prize Draw</div>
-            <div class="sched-desc">The big one — last call for raffle tickets</div>
-          </div>
-        </div>
-        <div class="schedule-item">
-          <div class="sched-time">Until 1 AM</div>
-          <div>
-            <div class="sched-event">Dance the Night Away</div>
-            <div class="sched-desc">DJ keeps it going until last call</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="section-inner">
-      <p class="section-label">The Couple</p>
-      <h2 class="section-title">Diego &amp; Andrea</h2>
-      <div class="rule"></div>
-      <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-        <div class="gallery-item"><div class="gallery-icon">📷</div><span class="gallery-label">Photo</span></div>
-      </div>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
       <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Have Questions?</h2>
       <div class="rule"></div>
-      <div class="contact-centered">
+      <div class="contact-card">
         <p>Questions about the event or want to donate a prize? Reach out directly.</p>
         <div class="contact-details">
           <div class="contact-detail">
-            <div class="cdi">📅</div>
             <div class="cdt"><strong>Date</strong>Saturday, April 25, 2026 · 8:00 PM – 1:00 AM</div>
           </div>
           <div class="contact-detail">
-            <div class="cdi">📍</div>
             <div class="cdt"><strong>Location</strong>Winakwa Community Centre, Winnipeg MB</div>
           </div>
           <div class="contact-detail">
-            <div class="cdi">✉️</div>
             <div class="cdt"><strong>Email</strong>diegoandrea2026@gmail.com</div>
           </div>
         </div>
