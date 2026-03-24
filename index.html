@@ -693,6 +693,29 @@
     .footer-credit { font-size: 0.62rem; color: var(--text-light); }
     .footer-credit a { color: var(--text-mid); text-decoration: none; }
 
+    /* ── PRIZE FILTERS ── */
+    .prize-filter-bar {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .prize-filter-btn {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      padding: 11px 28px;
+      font-size: 0.66rem; letter-spacing: 0.16em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      color: var(--text-mid);
+    }
+    .prize-filter-btn:hover { border-color: var(--brown); color: var(--brown); }
+    .prize-filter-btn.active {
+      background: var(--brown); color: #FAF8F4;
+      border-color: var(--brown);
+    }
+    .prize-group { transition: opacity 0.25s; }
+    .prize-group.hidden { display: none; }
+
     /* ── GOLDEN TICKET ── */
     .golden-ticket-wrap { display: flex; justify-content: center; margin-bottom: 44px; }
     .golden-ticket { max-width: 280px; box-shadow: 0 0 0 3px rgba(212,175,55,0.38), 5px 10px 28px rgba(0,0,0,0.2) !important; }
@@ -827,6 +850,15 @@
   <!-- GRAND PRIZE -->
   <section id="grand-prize">
     <div class="section-inner">
+
+      <!-- Filter Buttons -->
+      <div class="prize-filter-bar">
+        <button class="prize-filter-btn active" data-filter="golden">Golden Ticket Prize</button>
+        <button class="prize-filter-btn" data-filter="grand">Grand Prize</button>
+        <button class="prize-filter-btn" data-filter="regular">Regular Prize</button>
+      </div>
+
+      <div class="prize-group" id="goldenGroup">
       <p class="section-label">Golden Ticket</p>
       <div class="rule"></div>
       <p class="section-sub">One lucky winner takes the top prize of the night.</p>
@@ -837,8 +869,10 @@
           <div class="prize-tap">View</div>
         </div>
       </div>
+      </div><!-- end goldenGroup -->
 
-      <p class="section-label section-label-spaced">Grand Prizes</p>
+      <div class="prize-group hidden" id="grandGroup">
+      <p class="section-label">Grand Prizes</p>
       <div class="rule"></div>
       <p class="section-sub">Tap any prize to get a closer look.</p>
       <div class="prizes-grid" id="grandPrizesGrid">
@@ -923,12 +957,15 @@
           <div class="prize-tap">View</div>
         </div>
       </div>
+      </div><!-- end grandGroup -->
+
     </div>
   </section>
 
   <!-- PRIZES -->
   <section id="prizes">
     <div class="section-inner">
+      <div class="prize-group hidden" id="regularGroup">
       <p class="section-label">Regular Prizes</p>
       <div class="rule"></div>
       <p class="section-sub">Tap any prize to get a closer look.</p>
@@ -1024,6 +1061,7 @@
           <div class="prize-tap">View</div>
         </div>
       </div>
+      </div><!-- end regularGroup -->
     </div>
   </section>
 
@@ -1125,6 +1163,25 @@
     document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
     document.getElementById('lbNext').addEventListener('click', () => navigate(1));
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    // Prize filter buttons
+    const filterGroups = {
+      golden:  document.getElementById('goldenGroup'),
+      grand:   document.getElementById('grandGroup'),
+      regular: document.getElementById('regularGroup')
+    };
+    document.querySelectorAll('.prize-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.prize-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        Object.entries(filterGroups).forEach(([key, el]) => {
+          el.classList.toggle('hidden', key !== f);
+        });
+        // Scroll to prize area
+        document.getElementById('grand-prize').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
     document.addEventListener('keydown', e => {
       if (!lb.classList.contains('open')) return;
       if (e.key === 'Escape') closeLb();
