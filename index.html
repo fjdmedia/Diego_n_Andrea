@@ -697,13 +697,39 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
+      body { background-attachment: scroll; }
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .prizes-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px 14px; }
-      .lb-prev { left: 8px; }
-      .lb-next { right: 8px; }
+      section { padding: 64px 20px; }
       .about-card { padding: 36px 28px; }
       .contact-card { padding: 36px 28px; }
+      .grand-prize-card { padding: 40px 28px; }
+      .ticket-type-card { min-width: 160px; padding: 20px 24px; }
+      .tickets-grid { gap: 28px; }
+      .details-strip { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); max-width: 100%; }
+      .detail-spacer { display: none; }
+      .prizes-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px 14px; }
+      .prize-filter-btn { padding: 9px 18px; font-size: 0.62rem; }
+      .lb-prev { left: 8px; }
+      .lb-next { right: 8px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 80px 20px 72px; }
+      .hero-note { padding: 14px 18px; width: 100%; }
+      .hero-venue { font-size: 0.7rem; line-height: 1.6; }
+      .ticket-types { flex-direction: column; align-items: center; }
+      .ticket-type-card { min-width: 80%; }
+      .tickets-grid { gap: 48px; }
+      .ticket-card { max-width: 220px; }
+      .ticket-card--right { margin-top: 0; }
+      .details-strip { grid-template-columns: 1fr 1fr; }
+      .detail-card { padding: 22px 12px; }
+      .prizes-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 10px; }
+      .prize-filter-bar { gap: 6px; }
+      .prize-filter-btn { padding: 8px 14px; }
+      .contact-card { padding: 32px 20px; }
+      .footer-sub { letter-spacing: 0.1em; font-size: 0.58rem; }
     }
   </style>
 </head>
