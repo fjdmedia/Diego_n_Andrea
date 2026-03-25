@@ -74,21 +74,10 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 140px 24px 100px;
+      padding: 100px 24px 100px;
       position: relative;
     }
 
-    /* Tape strips on hero */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 120px; left: 50%;
-      transform: translateX(-50%) rotate(-1.5deg);
-      width: 140px; height: 26px;
-      background: rgba(255, 220, 120, 0.38);
-      border-radius: 1px;
-      pointer-events: none;
-    }
 
     .hero-eyebrow {
       font-size: 0.65rem;
@@ -102,7 +91,7 @@
       font-size: clamp(4rem, 10vw, 8rem);
       line-height: 1.0;
       color: var(--brown);
-      margin-bottom: 16px;
+      margin-bottom: 36px;
     }
     .hero-names {
       font-family: 'DM Sans', sans-serif;
@@ -299,7 +288,7 @@
     }
     .ticket-card {
       background: #fff;
-      padding: 10px 10px 52px;
+      padding: 10px;
       box-shadow: 4px 6px 20px rgba(0,0,0,0.14), 0 1px 0 rgba(0,0,0,0.06);
       max-width: 280px;
       width: 100%;
@@ -330,13 +319,6 @@
     .ticket-card img {
       width: 100%;
       display: block;
-    }
-    .ticket-caption {
-      text-align: center;
-      padding-top: 12px;
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.6rem;
-      color: var(--text-mid);
     }
     .ticket-types {
       display: flex;
@@ -387,19 +369,6 @@
       color: var(--text-light);
       margin-bottom: 40px;
     }
-    .tickets-note {
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--text-light);
-      font-style: italic;
-    }
-    .tickets-note a {
-      color: var(--brown);
-      text-decoration: none;
-      font-style: normal;
-      font-weight: 500;
-    }
-    .tickets-note a:hover { text-decoration: underline; }
 
     /* ── GRAND PRIZE ── */
     #grand-prize { background: transparent; }
@@ -436,13 +405,18 @@
       font-style: italic;
     }
 
+    .detail-spacer { visibility: hidden; }
+
     /* ── DETAILS ── */
     #details { background: transparent; }
 
     .details-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
       gap: 16px;
+      justify-content: center;
+      max-width: 860px;
+      margin: 0 auto;
     }
     .detail-card {
       background: rgba(255,255,255,0.80);
@@ -749,9 +723,8 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <p class="hero-eyebrow">Andrea &amp; Diego's</p>
+    <p class="hero-eyebrow">Diego &amp; Andrea's</p>
     <div class="hero-title">Wedding Social</div>
-    <p class="hero-names">Diego &nbsp;&amp;&nbsp; Andrea</p>
     <div class="hero-tags">
       <span class="hero-tag-pill">Music</span>
       <span class="hero-tag-pill">Drinks</span>
@@ -791,14 +764,11 @@
       <div class="tickets-grid">
         <div class="ticket-card">
           <img src="Reference/Reference.jpg" alt="Admission Ticket" />
-          <div class="ticket-caption">Admission</div>
         </div>
         <div class="ticket-card ticket-card--right">
           <img src="Reference/Reference_2.jpg" alt="Support Ticket" />
-          <div class="ticket-caption">Support</div>
         </div>
       </div>
-      <p class="tickets-note">DM on Facebook to purchase — <a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></p>
     </div>
   </section>
 
@@ -834,14 +804,15 @@
           <div class="detail-sub">Included</div>
         </div>
         <div class="detail-card">
-          <div class="detail-label">Door Prizes</div>
-          <div class="detail-value">Announced at 9:00 PM</div>
-          <div class="detail-sub">Don't miss it</div>
-        </div>
-        <div class="detail-card">
           <div class="detail-label">Tickets</div>
           <div class="detail-value">Pre-Sale Only</div>
           <div class="detail-sub">Not sold at the door</div>
+        </div>
+        <div class="detail-spacer"></div>
+        <div class="detail-card">
+          <div class="detail-label">Door Prizes</div>
+          <div class="detail-value">Announced at 9:00 PM</div>
+          <div class="detail-sub">Don't miss it</div>
         </div>
       </div>
     </div>
