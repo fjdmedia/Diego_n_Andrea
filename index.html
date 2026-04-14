@@ -907,32 +907,87 @@
       opacity: 0.45;
     }
 
-    /* ── LOVE NOTE ── */
-    .love-note {
-      max-width: 560px;
+    /* ── PHOTO SPREAD ── */
+    .photo-spread {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      padding: 48px 24px;
+      position: relative;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 56px 24px;
+    }
+    .photo-spread-item {
+      background: #fff;
+      padding: 8px 8px 36px;
+      box-shadow: 3px 5px 16px rgba(0,0,0,0.12), 0 1px 0 rgba(0,0,0,0.06);
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s, z-index 0s;
+      cursor: default;
+      flex-shrink: 0;
+      width: 200px;
+    }
+    .photo-spread-item:nth-child(1) { transform: rotate(-4deg) translateX(16px); z-index: 1; }
+    .photo-spread-item:nth-child(2) { transform: rotate(3deg) translateX(-16px); z-index: 2; }
+    .photo-spread-item:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.05);
+      box-shadow: 6px 12px 28px rgba(0,0,0,0.18);
+      z-index: 10;
+    }
+    .photo-spread-item::before {
+      content: '';
+      position: absolute;
+      top: -10px; left: 50%;
+      transform: translateX(-50%) rotate(var(--tape-rot, 1deg));
+      width: 48px; height: 16px;
+      background: rgba(255, 215, 100, 0.42);
+      border-radius: 1px;
+    }
+    .photo-spread-item:nth-child(1)::before { --tape-rot: -2deg; }
+    .photo-spread-item:nth-child(2)::before { --tape-rot: 1.5deg; }
+    .photo-spread-item:nth-child(3)::before { --tape-rot: -1deg; }
+    .photo-spread-item img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-spread-caption {
       text-align: center;
-    }
-    .love-note-text {
+      padding-top: 8px;
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: var(--brown);
-      line-height: 1.4;
-      margin-bottom: 12px;
+      font-size: 1rem;
+      color: var(--text-mid);
     }
-    .love-note-rule {
-      width: 40px;
-      height: 1px;
-      background: var(--brown);
-      opacity: 0.3;
-      margin: 16px auto;
-    }
-    .love-note-attr {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
+    .photo-spread-credit {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-light);
+      opacity: 0.6;
+    }
+    .photo-spread-credit a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .photo-spread-credit a:hover {
+      color: var(--brown);
+      opacity: 1;
+    }
+
+    @media (max-width: 860px) {
+      .photo-spread-item { width: 160px; }
+    }
+    @media (max-width: 480px) {
+      .photo-spread { gap: 0; padding: 36px 12px; }
+      .photo-spread-item { width: 120px; padding: 6px 6px 28px; }
+      .photo-spread-caption { font-size: 0.85rem; }
     }
 
     /* ── CONFETTI ── */
@@ -1037,7 +1092,7 @@
       <a href="#prizes" class="btn-outline">See Prizes</a>
     </div>
     <div class="hero-photo gs-reveal">
-      <img src="Reference/hero.jpg" alt="Diego and Andrea" loading="eager" />
+      <img src="Reference/DandA_3.jpg" alt="Diego and Andrea" loading="eager" />
     </div>
   </section>
 
@@ -1122,6 +1177,16 @@
       </div>
     </div>
   </section>
+
+  <div class="photo-spread">
+    <div class="photo-spread-item">
+      <img src="Reference/DandA_1.jpg" alt="Diego and Andrea" loading="lazy" />
+    </div>
+    <div class="photo-spread-item">
+      <img src="Reference/DandA_2.jpg" alt="Diego and Andrea" loading="lazy" />
+    </div>
+    <div class="photo-spread-credit"><a href="https://www.instagram.com/lindaquach.photo" target="_blank" rel="noopener">Photos by @lindaquach.photo</a></div>
+  </div>
 
   <!-- PRIZES (unified section) -->
   <section id="prizes">
@@ -1657,12 +1722,12 @@
           });
         });
 
-        // Love note
-        var loveNote = document.querySelector('.love-note');
-        if (loveNote) {
-          gsap.from(loveNote, {
-            scrollTrigger: { trigger: loveNote, start: 'top 85%', once: true },
-            y: 20, opacity: 0, duration: 0.8, ease: 'power1.out', immediateRender: false
+        // Photo spread
+        var spreadItems = document.querySelectorAll('.photo-spread-item');
+        if (spreadItems.length) {
+          gsap.from(spreadItems, {
+            scrollTrigger: { trigger: '.photo-spread', start: 'top 85%', once: true },
+            y: 40, opacity: 0, scale: 0.85, duration: 0.6, stagger: 0.12, ease: 'back.out(1.2)', immediateRender: false
           });
         }
 
