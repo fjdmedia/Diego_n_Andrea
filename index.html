@@ -2,9 +2,81 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diego & Andrea — Wedding Social</title>
-  <!-- Google tag (gtag.js) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Diego & Andrea — Wedding Social | April 25, 2026 Winnipeg</title>
+  <meta name="description" content="Diego & Andrea's Wedding Social — April 25, 2026 at Winakwa Community Centre, Winnipeg. Live music by DJ Tayne, dinner, 35+ prizes including a $1,000 WestJet Gift Card. Pre-sale tickets only." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fjdmedia.github.io/Diego_n_Andrea" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diego & Andrea — Wedding Social | April 25, 2026" />
+  <meta property="og:description" content="Live music, dinner, and 35+ prizes including a $1,000 WestJet Gift Card. Pre-sale tickets only — $10 each." />
+  <meta property="og:image" content="https://fjdmedia.github.io/Diego_n_Andrea/Reference/hero.jpg" />
+  <meta property="og:url" content="https://fjdmedia.github.io/Diego_n_Andrea" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diego & Andrea — Wedding Social | April 25, 2026" />
+  <meta name="twitter:description" content="Live music, dinner, and 35+ prizes including a $1,000 WestJet Gift Card. Pre-sale tickets only." />
+  <meta name="twitter:image" content="https://fjdmedia.github.io/Diego_n_Andrea/Reference/hero.jpg" />
+
+  <!-- Event Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Diego & Andrea's Wedding Social",
+    "startDate": "2026-04-25T20:00:00-05:00",
+    "endDate": "2026-04-26T01:00:00-05:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Winakwa Community Centre",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "980 Winakwa Rd",
+        "addressLocality": "Winnipeg",
+        "addressRegion": "MB",
+        "postalCode": "R2J 1E7",
+        "addressCountry": "CA"
+      }
+    },
+    "description": "Wedding social with live music by DJ Tayne, late-night dinner, and 35+ prizes including a $1,000 WestJet Gift Card.",
+    "performer": {
+      "@type": "Person",
+      "name": "DJ Tayne"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Admission Ticket",
+        "price": "10.00",
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01"
+      },
+      {
+        "@type": "Offer",
+        "name": "Support Ticket",
+        "price": "10.00",
+        "priceCurrency": "CAD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-01"
+      }
+    ],
+    "organizer": [
+      { "@type": "Person", "name": "Diego Dominguez" },
+      { "@type": "Person", "name": "Andrea Guemo" }
+    ]
+  }
+  </script>
+
+  <!-- Preload background -->
+  <link rel="preload" href="../Reference/bg-paper-ghost.jpg" as="image" />
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QMTGH7JXR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,9 +84,12 @@
     gtag('js', new Date());
     gtag('config', 'G-2QMTGH7JXR');
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" /></noscript>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,10 +99,11 @@
       --bg3:        #E8E4DC;
       --text:       #1A0F08;
       --text-mid:   #6A5A50;
-      --text-light: #A89D94;
+      --text-light: #625549;
       --border:     #DDD8D0;
       --brown:      #6B2D1A;
       --cream:      #FAF8F4;
+      --brown-light: #8B4D3A;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,13 +111,18 @@
     body {
       font-family: 'DM Sans', sans-serif;
       background-color: var(--bg);
-      background-image: url('Reference/bg-paper-ghost.jpg');
+      background-image: url('../Reference/bg-paper-ghost.jpg');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
       background-repeat: no-repeat;
       color: var(--text);
       line-height: 1.65;
+    }
+
+    /* ── GSAP FOIC PREVENTION (hero only) ── */
+    .hero .gs-reveal {
+      visibility: hidden;
     }
 
     /* ── NAV ── */
@@ -55,6 +136,7 @@
       padding: 16px 52px;
       background: rgba(248,247,243,0.88);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
@@ -74,9 +156,56 @@
     }
     .nav-links a:hover { color: var(--brown); }
 
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 102;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(248,247,243,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+    .nav-overlay.open { display: flex; }
+    .nav-overlay a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-overlay a:hover { color: var(--brown); }
+
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -86,7 +215,6 @@
       position: relative;
     }
 
-
     .hero-eyebrow {
       font-size: 0.65rem;
       letter-spacing: 0.28em;
@@ -94,31 +222,47 @@
       color: var(--text-light);
       margin-bottom: 16px;
     }
-    .hero-title {
+    h1 {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(4rem, 10vw, 8rem);
       line-height: 1.0;
       color: var(--brown);
       margin-bottom: 36px;
+      font-weight: 400;
     }
-    .hero-names {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(0.7rem, 1.4vw, 0.85rem);
-      font-weight: 500;
-      letter-spacing: 0.32em;
+    .hero-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .hero-tag-pill {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid var(--border);
+      padding: 5px 16px;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text-mid);
-      margin-bottom: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-tag-pill svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.5;
     }
 
-    /* Hero detail note — looks like a handwritten sticky */
+    /* Hero detail note */
     .hero-note {
       background: rgba(255,255,255,0.72);
       border: 1px solid rgba(221,216,208,0.8);
       padding: 18px 32px;
       position: relative;
       display: inline-block;
-      margin-bottom: 28px;
+      margin-bottom: 16px;
       box-shadow: 2px 3px 10px rgba(0,0,0,0.07);
       transform: rotate(-0.6deg);
     }
@@ -144,28 +288,52 @@
       color: var(--text-mid);
       letter-spacing: 0.04em;
     }
-    .hero-notice {
-      font-size: 0.72rem;
+
+    /* Countdown */
+    .countdown-wrap {
+      margin-bottom: 20px;
+    }
+    .countdown {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+    .countdown-unit {
+      text-align: center;
+    }
+    .countdown-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: var(--text-light);
-      font-style: italic;
-      margin-bottom: 36px;
+      margin-top: 2px;
+    }
+    .countdown-sep {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--text-light);
+      margin-top: -8px;
     }
 
-    .hero-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 28px;
-    }
-    .hero-tag-pill {
-      background: rgba(255,255,255,0.65);
-      border: 1px solid var(--border);
-      padding: 5px 16px;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-mid);
+    /* Urgency notice */
+    .hero-notice {
+      background: rgba(107,45,26,0.08);
+      border: 1px solid rgba(107,45,26,0.15);
+      padding: 10px 24px;
+      font-size: 0.72rem;
+      color: var(--brown);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 32px;
+      text-align: center;
     }
 
     .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -209,7 +377,6 @@
 
     /* Scrapbook sticker label */
     .section-label {
-      display: inline-block;
       font-family: 'Great Vibes', cursive;
       font-size: 1.6rem;
       color: var(--brown);
@@ -218,7 +385,7 @@
       display: block;
       text-align: center;
     }
-    .section-title {
+    h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 600;
@@ -235,53 +402,52 @@
     }
     .rule { width: 36px; height: 1px; background: var(--border); margin: 14px auto 44px; }
 
-    /* ── ABOUT ── */
-    #about { background: rgba(244,241,236,0.82); }
+    /* ── DETAILS ── */
+    #details { background: transparent; }
 
-    .about-card {
-      max-width: 620px;
+    .details-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
+      gap: 16px;
+      justify-content: center;
+      max-width: 860px;
       margin: 0 auto;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(221,216,208,0.9);
-      padding: 48px 52px;
-      box-shadow: 3px 5px 18px rgba(0,0,0,0.08), -1px -1px 0 rgba(221,216,208,0.5);
-      position: relative;
-      transform: rotate(-0.4deg);
-      text-align: center;
     }
-    /* Tape on about card */
-    .about-card::before {
+    .detail-card {
+      background: rgba(255,255,255,0.80);
+      border: 1px solid rgba(221,216,208,0.85);
+      padding: 32px 20px;
+      text-align: center;
+      box-shadow: 2px 4px 14px rgba(0,0,0,0.07);
+      position: relative;
+    }
+    .detail-card:nth-child(odd)  { transform: rotate(-0.8deg); }
+    .detail-card:nth-child(even) { transform: rotate(0.6deg); }
+    .detail-card:hover { transform: rotate(0deg) translateY(-3px); transition: transform 0.2s; }
+
+    .detail-card::before {
       content: '';
       position: absolute;
-      top: -14px; left: 50%;
+      top: -10px; left: 50%;
       transform: translateX(-50%) rotate(1deg);
-      width: 80px; height: 22px;
-      background: rgba(255, 210, 100, 0.42);
+      width: 44px; height: 16px;
+      background: rgba(255, 220, 120, 0.4);
       border-radius: 1px;
     }
-    .about-card h3 {
+    .detail-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .detail-value {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 20px;
     }
-    .about-card p {
-      color: var(--text-mid);
-      font-size: 0.88rem;
-      margin-bottom: 14px;
-      line-height: 1.85;
-    }
-    .about-pill-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
-    .about-pill {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      padding: 6px 18px;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-    }
+    .detail-sub { font-size: 0.68rem; color: var(--text-light); margin-top: 4px; }
 
     /* ── TICKETS ── */
     #tickets { background: rgba(244,241,236,0.82); }
@@ -300,6 +466,7 @@
       box-shadow: 4px 6px 20px rgba(0,0,0,0.14), 0 1px 0 rgba(0,0,0,0.06);
       max-width: 280px;
       width: 100%;
+      min-width: 0;
       position: relative;
       transform: rotate(-2.5deg);
       transition: transform 0.25s, box-shadow 0.25s;
@@ -313,7 +480,6 @@
       box-shadow: 8px 14px 32px rgba(0,0,0,0.18);
       z-index: 2;
     }
-    /* Tape on each ticket */
     .ticket-card::before {
       content: '';
       position: absolute;
@@ -326,6 +492,8 @@
     .ticket-card--right::before { transform: translateX(-50%) rotate(-2deg); }
     .ticket-card img {
       width: 100%;
+      max-width: 100%;
+      height: auto;
       display: block;
     }
     .ticket-types {
@@ -378,94 +546,35 @@
       margin-bottom: 40px;
     }
 
-    /* ── GRAND PRIZE ── */
-    #grand-prize { background: transparent; }
-    .grand-prize-card {
-      max-width: 500px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.78);
-      border: 2px dashed var(--border);
-      padding: 52px 40px;
-      text-align: center;
-      position: relative;
-      transform: rotate(-0.4deg);
-      box-shadow: 3px 5px 18px rgba(0,0,0,0.07);
-    }
-    .grand-prize-card::before {
-      content: '';
-      position: absolute;
-      top: -13px; left: 50%;
-      transform: translateX(-50%) rotate(1deg);
-      width: 70px; height: 22px;
-      background: rgba(255, 215, 100, 0.44);
-      border-radius: 1px;
-    }
-    .grand-prize-soon {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      color: var(--brown);
-      margin-bottom: 10px;
-      opacity: 0.7;
-    }
-    .grand-prize-hint {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      font-style: italic;
-    }
-
-    .detail-spacer { visibility: hidden; }
-
-    /* ── DETAILS ── */
-    #details { background: transparent; }
-
-    .details-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
-      gap: 16px;
-      justify-content: center;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .detail-card {
-      background: rgba(255,255,255,0.80);
-      border: 1px solid rgba(221,216,208,0.85);
-      padding: 32px 20px;
-      text-align: center;
-      box-shadow: 2px 4px 14px rgba(0,0,0,0.07);
-      position: relative;
-    }
-    /* Alternate card tilts */
-    .detail-card:nth-child(odd)  { transform: rotate(-0.8deg); }
-    .detail-card:nth-child(even) { transform: rotate(0.6deg); }
-    .detail-card:hover { transform: rotate(0deg) translateY(-3px); transition: transform 0.2s; }
-
-    /* Tape corner on each detail card */
-    .detail-card::before {
-      content: '';
-      position: absolute;
-      top: -10px; left: 50%;
-      transform: translateX(-50%) rotate(1deg);
-      width: 44px; height: 16px;
-      background: rgba(255, 220, 120, 0.4);
-      border-radius: 1px;
-    }
-    .detail-label {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-bottom: 8px;
-    }
-    .detail-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .detail-sub { font-size: 0.68rem; color: var(--text-light); margin-top: 4px; }
-
-    /* ── PRIZES ── */
+    /* ── PRIZES (unified section) ── */
     #prizes { background: rgba(244,241,236,0.82); }
+
+    .prize-filter-bar {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .prize-filter-btn {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--border);
+      padding: 11px 28px;
+      font-size: 0.66rem; letter-spacing: 0.16em;
+      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+      font-weight: 500; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      color: var(--text-mid);
+    }
+    .prize-filter-btn:hover { border-color: var(--brown); color: var(--brown); }
+    .prize-filter-btn.active {
+      background: var(--brown); color: #FAF8F4;
+      border-color: var(--brown);
+    }
+    .prize-group { transition: opacity 0.25s; }
+    .prize-group.hidden { display: none; }
+
+    /* Golden Ticket */
+    .golden-ticket-wrap { display: flex; justify-content: center; margin-bottom: 44px; }
+    .golden-ticket { max-width: 280px; box-shadow: 0 0 0 3px rgba(212,175,55,0.38), 5px 10px 28px rgba(0,0,0,0.2) !important; }
+    .section-label-spaced { margin-top: 60px; }
 
     /* Polaroid grid */
     .prizes-grid {
@@ -483,7 +592,6 @@
       position: relative;
       transition: transform 0.25s, box-shadow 0.25s;
     }
-    /* Alternating polaroid tilts */
     .prize-card:nth-child(1)  { transform: rotate(-2.2deg); }
     .prize-card:nth-child(2)  { transform: rotate(1.5deg); }
     .prize-card:nth-child(3)  { transform: rotate(-1deg); }
@@ -500,7 +608,6 @@
       z-index: 2;
     }
 
-    /* Tape on polaroids */
     .prize-card::before {
       content: '';
       position: absolute;
@@ -527,7 +634,6 @@
       display: block;
     }
 
-    /* Polaroid caption area */
     .prize-caption {
       text-align: center;
       padding-top: 10px;
@@ -537,14 +643,13 @@
       user-select: none;
     }
 
-    /* View badge */
     .prize-tap {
       position: absolute;
       bottom: 14px;
       right: 12px;
       background: var(--brown);
       color: #fff;
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 4px 9px;
@@ -558,7 +663,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 1000;
+      z-index: 200;
       background: rgba(28,18,9,0.92);
       align-items: center;
       justify-content: center;
@@ -675,57 +780,52 @@
     .footer-credit { font-size: 0.62rem; color: var(--text-light); }
     .footer-credit a { color: var(--text-mid); text-decoration: none; }
 
-    /* ── PRIZE FILTERS ── */
-    .prize-filter-bar {
-      display: flex; gap: 10px; justify-content: center;
-      flex-wrap: wrap; margin-bottom: 48px;
+    /* ── STICKY MOBILE CTA ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--brown);
+      padding: 14px 24px;
+      padding-bottom: calc(14px + env(safe-area-inset-bottom));
+      text-align: center;
     }
-    .prize-filter-btn {
-      background: rgba(255,255,255,0.72);
-      border: 1px solid var(--border);
-      padding: 11px 28px;
-      font-size: 0.66rem; letter-spacing: 0.16em;
-      text-transform: uppercase; font-family: 'DM Sans', sans-serif;
-      font-weight: 500; cursor: pointer;
-      transition: border-color 0.2s, background 0.2s, color 0.2s;
-      color: var(--text-mid);
+    .sticky-cta a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
-    .prize-filter-btn:hover { border-color: var(--brown); color: var(--brown); }
-    .prize-filter-btn.active {
-      background: var(--brown); color: #FAF8F4;
-      border-color: var(--brown);
-    }
-    .prize-group { transition: opacity 0.25s; }
-    .prize-group.hidden { display: none; }
-
-    /* ── GOLDEN TICKET ── */
-    .golden-ticket-wrap { display: flex; justify-content: center; margin-bottom: 44px; }
-    .golden-ticket { max-width: 280px; box-shadow: 0 0 0 3px rgba(212,175,55,0.38), 5px 10px 28px rgba(0,0,0,0.2) !important; }
-    .section-label-spaced { margin-top: 60px; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       body { background-attachment: scroll; }
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .sticky-cta { display: block; }
       section { padding: 64px 20px; }
-      .about-card { padding: 36px 28px; }
       .contact-card { padding: 36px 28px; }
-      .grand-prize-card { padding: 40px 28px; }
       .ticket-type-card { min-width: 160px; padding: 20px 24px; }
       .tickets-grid { gap: 28px; }
       .details-strip { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); max-width: 100%; }
-      .detail-spacer { display: none; }
       .prizes-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 24px 14px; }
       .prize-filter-btn { padding: 9px 18px; font-size: 0.62rem; }
       .lb-prev { left: 8px; }
       .lb-next { right: 8px; }
+      /* Space for sticky CTA */
+      footer { padding-bottom: 80px; }
     }
 
     @media (max-width: 480px) {
       .hero { padding: 80px 20px 72px; min-height: unset; justify-content: flex-start; }
       .hero-note { padding: 14px 18px; width: 100%; }
       .hero-venue { font-size: 0.7rem; line-height: 1.6; }
+      .countdown-num { font-size: 1.6rem; }
+      .countdown { gap: 10px; }
       .ticket-types { flex-direction: column; align-items: center; }
       .ticket-type-card { min-width: 80%; }
       .tickets-grid { gap: 48px; }
@@ -737,7 +837,148 @@
       .prize-filter-bar { gap: 6px; }
       .prize-filter-btn { padding: 8px 14px; }
       .contact-card { padding: 32px 20px; }
-      .footer-sub { letter-spacing: 0.1em; font-size: 0.58rem; }
+      .footer-sub { letter-spacing: 0.1em; font-size: 0.65rem; }
+    }
+
+    /* ── FOCUS VISIBLE ── */
+    :focus-visible {
+      outline: 2px solid var(--brown);
+      outline-offset: 2px;
+    }
+    .btn-primary:focus-visible { outline-color: var(--cream); }
+
+    /* ── HERO PHOTO ── */
+    .hero-photo {
+      margin-top: 36px;
+      background: #fff;
+      padding: 10px 10px 44px;
+      box-shadow: 4px 6px 20px rgba(0,0,0,0.14), 0 1px 0 rgba(0,0,0,0.06);
+      transform: rotate(-2.5deg);
+      max-width: 280px;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .hero-photo:hover {
+      transform: rotate(0deg) translateY(-4px);
+      box-shadow: 8px 14px 32px rgba(0,0,0,0.18);
+    }
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%) rotate(1.5deg);
+      width: 56px; height: 20px;
+      background: rgba(255, 200, 100, 0.45);
+      border-radius: 1px;
+    }
+    .hero-photo::after {
+      content: 'Diego & Andrea';
+      position: absolute;
+      bottom: 12px; left: 0; right: 0;
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.3rem;
+      color: var(--text-mid);
+    }
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── SECTION DIVIDERS ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 8px 24px;
+    }
+    .section-divider-line {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-divider-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--brown);
+      transform: rotate(45deg);
+      opacity: 0.45;
+    }
+
+    /* ── LOVE NOTE ── */
+    .love-note {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .love-note-text {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--brown);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .love-note-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--brown);
+      opacity: 0.3;
+      margin: 16px auto;
+    }
+    .love-note-attr {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* ── CONFETTI ── */
+    .confetti-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 150;
+      overflow: hidden;
+    }
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      opacity: 0;
+      animation: confetti-fall linear forwards;
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(100vh) rotate(720deg) scale(0.4); opacity: 0; }
+    }
+
+    /* ── PRIZE COUNT ── */
+    .prize-count {
+      display: inline-block;
+      min-width: 2ch;
+    }
+
+    /* ── FOIC FALLBACK ── */
+    @keyframes foic-fallback {
+      to { visibility: visible; opacity: 1; }
+    }
+    .hero .gs-reveal {
+      animation: foic-fallback 0s 3.5s forwards;
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      .hero .gs-reveal {
+        visibility: visible !important;
+        opacity: 1 !important;
+        animation: none !important;
+      }
+      .gs-reveal { opacity: 1 !important; }
+      .confetti-container { display: none !important; }
     }
   </style>
 </head>
@@ -747,69 +988,64 @@
   <nav>
     <div class="nav-logo">Diego &amp; Andrea</div>
     <ul class="nav-links">
-<li><a href="#tickets">Tickets</a></li>
       <li><a href="#details">Details</a></li>
-      <li><a href="#grand-prize">Grand Prize</a></li>
+      <li><a href="#tickets">Tickets</a></li>
       <li><a href="#prizes">Prizes</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <a href="#details">Details</a>
+    <a href="#tickets">Tickets</a>
+    <a href="#prizes">Prizes</a>
+    <a href="#contact">Contact</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <p class="hero-eyebrow">Diego &amp; Andrea's</p>
-    <div class="hero-title">Wedding Social</div>
-    <div class="hero-tags">
-      <span class="hero-tag-pill">Music</span>
-      <span class="hero-tag-pill">Drinks</span>
-      <span class="hero-tag-pill">Food</span>
-      <span class="hero-tag-pill">Prizes</span>
+    <p class="hero-eyebrow gs-reveal">Diego &amp; Andrea's</p>
+    <h1 class="gs-reveal">Wedding Social</h1>
+    <div class="hero-tags gs-reveal">
+      <span class="hero-tag-pill"><i data-lucide="music" style="width:14px;height:14px;stroke-width:1.5;"></i> Music</span>
+      <span class="hero-tag-pill"><i data-lucide="beer" style="width:14px;height:14px;stroke-width:1.5;"></i> Drinks</span>
+      <span class="hero-tag-pill"><i data-lucide="utensils" style="width:14px;height:14px;stroke-width:1.5;"></i> Food</span>
+      <span class="hero-tag-pill"><i data-lucide="gift" style="width:14px;height:14px;stroke-width:1.5;"></i> Prizes</span>
     </div>
-    <div class="hero-note">
+    <div class="hero-note gs-reveal">
       <div class="hero-date">Saturday, April 25, 2026</div>
-      <div class="hero-venue">Winakwa Community Centre &nbsp;·&nbsp; 980 Winakwa Rd, Winnipeg, MB R2J 1E7 &nbsp;·&nbsp; 8:00 PM – 1:00 AM</div>
+      <div class="hero-venue">Winakwa Community Centre &nbsp;&middot;&nbsp; 980 Winakwa Rd, Winnipeg, MB R2J 1E7 &nbsp;&middot;&nbsp; 8:00 PM &ndash; 1:00 AM</div>
     </div>
-    <p class="hero-notice">Admission and Support tickets available now &nbsp;·&nbsp; Tickets will not be sold at the door</p>
-    <div class="hero-cta">
-      <a href="#grand-prize" class="btn-primary">See Prizes</a>
-      <a href="#details" class="btn-outline">Details</a>
+    <div class="countdown-wrap gs-reveal">
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit"><div class="countdown-num" id="cdDays">--</div><div class="countdown-label">Days</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdHours">--</div><div class="countdown-label">Hours</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdMins">--</div><div class="countdown-label">Mins</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit"><div class="countdown-num" id="cdSecs">--</div><div class="countdown-label">Secs</div></div>
+      </div>
+    </div>
+    <div class="hero-notice gs-reveal">Tickets will not be sold at the door &nbsp;&middot;&nbsp; Pre-sale only</div>
+    <div class="hero-cta gs-reveal">
+      <a href="#tickets" class="btn-primary">Get Tickets</a>
+      <a href="#prizes" class="btn-outline">See Prizes</a>
+    </div>
+    <div class="hero-photo gs-reveal">
+      <img src="../Reference/hero.jpg" alt="Diego and Andrea" loading="eager" />
     </div>
   </section>
 
-
-  <!-- TICKETS -->
-  <section id="tickets">
-    <div class="section-inner">
-      <p class="section-label">Get Your Tickets</p>
-      <div class="rule"></div>
-      <div class="ticket-types">
-        <div class="ticket-type-card">
-          <div class="ticket-type-label">Admission</div>
-          <div class="ticket-type-price">$10</div>
-          <div class="ticket-type-desc">Your entry to the party!</div>
-        </div>
-        <div class="ticket-type-card">
-          <div class="ticket-type-label">Support</div>
-          <div class="ticket-type-price">$10</div>
-          <div class="ticket-type-desc">Can't make it? Support tickets automatically enter you into a <strong>$200 Visa Gift Card Draw!</strong></div>
-        </div>
-      </div>
-      <p class="tickets-payment">We accept Cash or E-transfer</p>
-      <div class="tickets-grid">
-        <div class="ticket-card">
-          <img src="Reference/Reference.jpg" alt="Admission Ticket" />
-        </div>
-        <div class="ticket-card ticket-card--right">
-          <img src="Reference/Reference_2.jpg" alt="Support Ticket" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DETAILS -->
+  <!-- DETAILS (moved before tickets) -->
   <section id="details">
     <div class="section-inner">
-      <p class="section-label">The Details</p>
+      <p class="section-label gs-reveal">The Details</p>
+      <h2 class="gs-reveal">Everything You Need to Know</h2>
       <div class="rule"></div>
       <div class="details-strip">
         <div class="detail-card">
@@ -819,7 +1055,7 @@
         </div>
         <div class="detail-card">
           <div class="detail-label">Time</div>
-          <div class="detail-value">8:00 PM – 1:00 AM</div>
+          <div class="detail-value">8:00 PM &ndash; 1:00 AM</div>
           <div class="detail-sub">Doors open at 8:00</div>
         </div>
         <div class="detail-card">
@@ -842,7 +1078,6 @@
           <div class="detail-value">Pre-Sale Only</div>
           <div class="detail-sub">Not sold at the door</div>
         </div>
-        <div class="detail-spacer"></div>
         <div class="detail-card">
           <div class="detail-label">Door Prizes</div>
           <div class="detail-value">Announced at 9:00 PM</div>
@@ -852,251 +1087,289 @@
     </div>
   </section>
 
-  <!-- GRAND PRIZE -->
-  <section id="grand-prize">
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-dot"></div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <!-- TICKETS -->
+  <section id="tickets">
     <div class="section-inner">
-
-      <!-- Filter Buttons -->
-      <div class="prize-filter-bar">
-        <button class="prize-filter-btn active" data-filter="golden">Golden Ticket Prize</button>
-        <button class="prize-filter-btn" data-filter="grand">Grand Prize</button>
-        <button class="prize-filter-btn" data-filter="regular">Regular Prize</button>
-      </div>
-
-      <div class="prize-group" id="goldenGroup">
-      <p class="section-label">Golden Ticket</p>
+      <p class="section-label gs-reveal">Get Your Tickets</p>
+      <h2 class="gs-reveal">$10 Each &mdash; Pre-Sale Only</h2>
       <div class="rule"></div>
-      <p class="section-sub">One lucky winner takes the top prize of the night.</p>
-      <div class="golden-ticket-wrap">
-        <div class="prize-card golden-ticket" data-type="grand" data-index="0">
-          <div class="prize-img"><img src="Prizes/FINAL/GoldenTicket1.jpg" alt="Golden Ticket" loading="lazy" /></div>
-          <div class="prize-caption">$1,000 WestJet Gift Card</div>
-          <div class="prize-tap">View</div>
+      <div class="ticket-types">
+        <div class="ticket-type-card">
+          <div class="ticket-type-label">Admission</div>
+          <div class="ticket-type-price">$10</div>
+          <div class="ticket-type-desc">Your entry to the party!</div>
+        </div>
+        <div class="ticket-type-card">
+          <div class="ticket-type-label">Support</div>
+          <div class="ticket-type-price">$10</div>
+          <div class="ticket-type-desc">Can't make it? Support tickets automatically enter you into a <strong>$200 Visa Gift Card Draw!</strong></div>
         </div>
       </div>
-      </div><!-- end goldenGroup -->
-
-      <div class="prize-group hidden" id="grandGroup">
-      <p class="section-label">Grand Prizes</p>
-      <div class="rule"></div>
-      <p class="section-sub">Tap any prize to get a closer look.</p>
-      <div class="prizes-grid" id="grandPrizesGrid">
-        <div class="prize-card" data-type="grand" data-index="1">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize1.jpg" alt="Yeti Package" loading="lazy" /></div>
-          <div class="prize-caption">Yeti Package</div>
-          <div class="prize-tap">View</div>
+      <p class="tickets-payment gs-reveal">We accept Cash or E-transfer</p>
+      <div class="tickets-grid">
+        <div class="ticket-card">
+          <img src="../Reference/Reference.jpg" alt="Admission Ticket — Diego and Andrea Wedding Social" width="520" height="800" />
         </div>
-        <div class="prize-card" data-type="grand" data-index="2">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize2.jpg" alt="AirPods Pro 3" loading="lazy" /></div>
-          <div class="prize-caption">AirPods Pro 3</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="3">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize3.jpg" alt="iPad A16" loading="lazy" /></div>
-          <div class="prize-caption">iPad A16</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="4">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize4.jpg" alt="Apple Watch Series 11" loading="lazy" /></div>
-          <div class="prize-caption">Apple Watch Series 11</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="5">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize5.jpg" alt="Rayban Meta Sunglasses" loading="lazy" /></div>
-          <div class="prize-caption">Rayban Meta Sunglasses</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="6">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize6.jpg" alt="Dyson V12 Vacuum" loading="lazy" /></div>
-          <div class="prize-caption">Dyson V12 Vacuum</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="7">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize7.jpg" alt="Nintendo Switch" loading="lazy" /></div>
-          <div class="prize-caption">Nintendo Switch</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="8">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize8.jpg" alt="PlayStation 5" loading="lazy" /></div>
-          <div class="prize-caption">PlayStation 5</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="9">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize9.jpg" alt='Philips 55" QLED Roku TV' loading="lazy" /></div>
-          <div class="prize-caption">Philips 55" QLED Roku TV</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="10">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize10.jpg" alt="Bikes His & Hers" loading="lazy" /></div>
-          <div class="prize-caption">Bikes (His &amp; Hers)</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="11">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize11.jpg" alt="Electric Scooter" loading="lazy" /></div>
-          <div class="prize-caption">Electric Scooter</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="12">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize12.jpg" alt="Kayak" loading="lazy" /></div>
-          <div class="prize-caption">Kayak</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="13">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize13.jpg" alt="Brussels 3 Piece Luggage Set" loading="lazy" /></div>
-          <div class="prize-caption">Brussels 3 Piece Luggage Set</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="14">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize14.jpg" alt="Diamond Stud Earrings" loading="lazy" /></div>
-          <div class="prize-caption">Diamond Stud Earrings</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="15">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize15.jpg" alt="Ten Spa Gift Card" loading="lazy" /></div>
-          <div class="prize-caption">Ten Spa Gift Card</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="grand" data-index="16">
-          <div class="prize-img"><img src="Prizes/FINAL/GrandPrize16.jpg" alt="Paddle Boards His & Hers" loading="lazy" /></div>
-          <div class="prize-caption">Paddle Boards (His &amp; Hers)</div>
-          <div class="prize-tap">View</div>
+        <div class="ticket-card ticket-card--right">
+          <img src="../Reference/Reference_2.jpg" alt="Support Ticket — Diego and Andrea Wedding Social" width="520" height="800" />
         </div>
       </div>
-      </div><!-- end grandGroup -->
-
     </div>
   </section>
 
-  <!-- PRIZES -->
+  <!-- PRIZES (unified section) -->
   <section id="prizes">
     <div class="section-inner">
-      <div class="prize-group hidden" id="regularGroup">
-      <p class="section-label">Regular Prizes</p>
+      <p class="section-label gs-reveal">The Prizes</p>
+      <h2 class="gs-reveal"><span class="prize-count" id="prizeCountNum">35+</span> Prizes Up for Grabs</h2>
       <div class="rule"></div>
-      <p class="section-sub">Tap any prize to get a closer look.</p>
-      <div class="prizes-grid" id="prizesGrid">
-        <div class="prize-card" data-type="regular" data-index="0">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize1.jpg" alt="Gym Package" loading="lazy" /></div>
-          <div class="prize-caption">Gym Package</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="1">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize2.jpg" alt="Walking Pad" loading="lazy" /></div>
-          <div class="prize-caption">Walking Pad</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="2">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize3.jpg" alt="Lottery Tree" loading="lazy" /></div>
-          <div class="prize-caption">Lottery Tree</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="3">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize4.jpg" alt="Pokemon Card Package" loading="lazy" /></div>
-          <div class="prize-caption">Pokemon Card Package</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="4">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize5.jpg" alt="Coffee Package" loading="lazy" /></div>
-          <div class="prize-caption">Coffee Package</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="5">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize6.jpg" alt="Ninja Delux Kitchen System" loading="lazy" /></div>
-          <div class="prize-caption">Ninja Delux Kitchen System</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="6">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize7.jpg" alt="Air Fryer & Pots & Pan Set" loading="lazy" /></div>
-          <div class="prize-caption">Air Fryer &amp; Pots &amp; Pan Set</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="7">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize8.jpg" alt="Kindle Reader + Plush Blanket" loading="lazy" /></div>
-          <div class="prize-caption">Kindle Reader + Plush Blanket</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="8">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize9.jpg" alt="Numark DJ2Go2 Touch" loading="lazy" /></div>
-          <div class="prize-caption">Numark DJ2Go2 Touch</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="9">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize10.jpg" alt="Lounge Chairs x2" loading="lazy" /></div>
-          <div class="prize-caption">Lounge Chairs x2</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="10">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize11.jpg" alt="Camping Package" loading="lazy" /></div>
-          <div class="prize-caption">Camping Package</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="11">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize12.jpg" alt="Ninja Creami + Ninja Blender 2.0" loading="lazy" /></div>
-          <div class="prize-caption">Ninja Creami + Ninja Blender 2.0</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="12">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize13.jpg" alt="Shark Robot Vacuum" loading="lazy" /></div>
-          <div class="prize-caption">Shark Robot Vacuum</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="13">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize14.jpg" alt="Mini Fridge" loading="lazy" /></div>
-          <div class="prize-caption">Mini Fridge</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="14">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize15.jpg" alt="Beauty Package" loading="lazy" /></div>
-          <div class="prize-caption">Beauty Package</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="15">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize16.jpg" alt="Convertible Freezer or Fridge" loading="lazy" /></div>
-          <div class="prize-caption">Convertible Freezer or Fridge</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="16">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize17.jpg" alt="Dewalt Wet/Dry Vacuum" loading="lazy" /></div>
-          <div class="prize-caption">Dewalt Wet/Dry Vacuum</div>
-          <div class="prize-tap">View</div>
-        </div>
-        <div class="prize-card" data-type="regular" data-index="17">
-          <div class="prize-img"><img src="Prizes/FINAL/RegularPrize18.jpg" alt="Friends Night Out Package" loading="lazy" /></div>
-          <div class="prize-caption">Friends Night Out Package</div>
-          <div class="prize-tap">View</div>
+
+      <!-- Filter Buttons -->
+      <div class="prize-filter-bar gs-reveal">
+        <button class="prize-filter-btn active" data-filter="golden" aria-label="Show Golden Ticket Prize">Golden Ticket</button>
+        <button class="prize-filter-btn" data-filter="grand" aria-label="Show Grand Prizes">Grand Prizes</button>
+        <button class="prize-filter-btn" data-filter="regular" aria-label="Show Regular Prizes">Regular Prizes</button>
+      </div>
+
+      <!-- Golden Ticket -->
+      <div class="prize-group" id="goldenGroup">
+        <p class="section-sub">One lucky winner takes the top prize of the night.</p>
+        <div class="golden-ticket-wrap">
+          <div class="prize-card golden-ticket" data-type="grand" data-index="0">
+            <div class="prize-img"><img src="../Prizes/FINAL/GoldenTicket1.jpg" alt="Golden Ticket — $1,000 WestJet Gift Card" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">$1,000 WestJet Gift Card</div>
+            <div class="prize-tap">View</div>
+          </div>
         </div>
       </div>
-      </div><!-- end regularGroup -->
+
+      <!-- Grand Prizes -->
+      <div class="prize-group hidden" id="grandGroup">
+        <p class="section-sub">Tap any prize to get a closer look.</p>
+        <div class="prizes-grid" id="grandPrizesGrid">
+          <div class="prize-card" data-type="grand" data-index="1">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize1.jpg" alt="Yeti Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Yeti Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="2">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize2.jpg" alt="AirPods Pro 3" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">AirPods Pro 3</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="3">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize3.jpg" alt="iPad A16" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">iPad A16</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="4">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize4.jpg" alt="Apple Watch Series 11" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Apple Watch Series 11</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="5">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize5.jpg" alt="Rayban Meta Sunglasses" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Rayban Meta Sunglasses</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="6">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize6.jpg" alt="Dyson V12 Vacuum" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Dyson V12 Vacuum</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="7">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize7.jpg" alt="Nintendo Switch" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Nintendo Switch</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="8">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize8.jpg" alt="PlayStation 5" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">PlayStation 5</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="9">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize9.jpg" alt='Philips 55" QLED Roku TV' loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Philips 55" QLED Roku TV</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="10">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize10.jpg" alt="Bikes His and Hers" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Bikes (His &amp; Hers)</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="11">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize11.jpg" alt="Electric Scooter" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Electric Scooter</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="12">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize12.jpg" alt="Kayak" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Kayak</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="13">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize13.jpg" alt="Brussels 3 Piece Luggage Set" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Brussels 3 Piece Luggage Set</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="14">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize14.jpg" alt="Diamond Stud Earrings" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Diamond Stud Earrings</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="15">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize15.jpg" alt="Ten Spa Gift Card" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Ten Spa Gift Card</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="grand" data-index="16">
+            <div class="prize-img"><img src="../Prizes/FINAL/GrandPrize16.jpg" alt="Paddle Boards His and Hers" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Paddle Boards (His &amp; Hers)</div>
+            <div class="prize-tap">View</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regular Prizes -->
+      <div class="prize-group hidden" id="regularGroup">
+        <p class="section-sub">Tap any prize to get a closer look.</p>
+        <div class="prizes-grid" id="prizesGrid">
+          <div class="prize-card" data-type="regular" data-index="0">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize1.jpg" alt="Gym Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Gym Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="1">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize2.jpg" alt="Walking Pad" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Walking Pad</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="2">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize3.jpg" alt="Lottery Tree" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Lottery Tree</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="3">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize4.jpg" alt="Pokemon Card Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Pokemon Card Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="4">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize5.jpg" alt="Coffee Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Coffee Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="5">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize6.jpg" alt="Ninja Delux Kitchen System" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Ninja Delux Kitchen System</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="6">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize7.jpg" alt="Air Fryer and Pots and Pan Set" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Air Fryer &amp; Pots &amp; Pan Set</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="7">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize8.jpg" alt="Kindle Reader and Plush Blanket" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Kindle Reader + Plush Blanket</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="8">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize9.jpg" alt="Numark DJ2Go2 Touch" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Numark DJ2Go2 Touch</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="9">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize10.jpg" alt="Lounge Chairs x2" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Lounge Chairs x2</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="10">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize11.jpg" alt="Camping Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Camping Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="11">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize12.jpg" alt="Ninja Creami and Ninja Blender 2.0" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Ninja Creami + Ninja Blender 2.0</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="12">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize13.jpg" alt="Shark Robot Vacuum" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Shark Robot Vacuum</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="13">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize14.jpg" alt="Mini Fridge" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Mini Fridge</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="14">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize15.jpg" alt="Beauty Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Beauty Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="15">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize16.jpg" alt="Convertible Freezer or Fridge" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Convertible Freezer or Fridge</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="16">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize17.jpg" alt="Dewalt Wet Dry Vacuum" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Dewalt Wet/Dry Vacuum</div>
+            <div class="prize-tap">View</div>
+          </div>
+          <div class="prize-card" data-type="regular" data-index="17">
+            <div class="prize-img"><img src="../Prizes/FINAL/RegularPrize18.jpg" alt="Friends Night Out Package" loading="lazy" width="360" height="640" /></div>
+            <div class="prize-caption">Friends Night Out Package</div>
+            <div class="prize-tap">View</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox">
-    <button class="lb-close" id="lbClose">&times;</button>
-    <button class="lb-prev" id="lbPrev">&#8592;</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Prize image viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close lightbox">&times;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous prize">&#8592;</button>
     <div class="lb-inner">
       <img class="lb-img" id="lbImg" src="" alt="Prize" />
     </div>
-    <button class="lb-next" id="lbNext">&#8594;</button>
-    <div class="lb-counter" id="lbCounter"></div>
+    <button class="lb-next" id="lbNext" aria-label="Next prize">&#8594;</button>
+    <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
+  </div>
+
+  <div class="section-divider">
+    <div class="section-divider-line"></div>
+    <div class="section-divider-dot"></div>
+    <div class="section-divider-line"></div>
   </div>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
-      <p class="section-label">Get in Touch</p>
+      <p class="section-label gs-reveal">Get in Touch</p>
+      <h2 class="gs-reveal">Questions? Reach Out</h2>
       <div class="rule"></div>
       <div class="contact-card">
         <p>Questions about the event or want to donate a prize? Reach out directly.</p>
         <div class="contact-details">
           <div class="contact-detail">
-            <div class="cdt"><strong>Date</strong>Saturday, April 25, 2026 · 8:00 PM – 1:00 AM</div>
+            <div class="cdt"><strong>Date</strong>Saturday, April 25, 2026 &middot; 8:00 PM &ndash; 1:00 AM</div>
           </div>
           <div class="contact-detail">
             <div class="cdt"><strong>Location</strong>Winakwa Community Centre, 980 Winakwa Rd, Winnipeg, MB R2J 1E7</div>
           </div>
           <div class="contact-detail">
-            <div class="cdt"><strong>Facebook</strong><a href="https://www.facebook.com/jeg824" target="_blank">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank">Andrea Guemo</a></div>
+            <div class="cdt"><strong>Facebook</strong><a href="https://www.facebook.com/jeg824" target="_blank" rel="noopener">Diego Dominguez</a> or <a href="https://www.facebook.com/andrea.claireg" target="_blank" rel="noopener">Andrea Guemo</a></div>
           </div>
         </div>
       </div>
@@ -1106,93 +1379,335 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-title">Diego &amp; Andrea</div>
-    <div class="footer-sub">Wedding Social &nbsp;·&nbsp; April 25, 2026 &nbsp;·&nbsp; Winakwa Community Centre</div>
-    <div class="footer-credit">Powered by <a href="https://fjdmedia.github.io/FJMedia" target="_blank">FJMedia</a></div>
+    <div class="footer-sub">Wedding Social &nbsp;&middot;&nbsp; April 25, 2026 &nbsp;&middot;&nbsp; Winakwa Community Centre</div>
+    <div class="footer-credit">Powered by <a href="https://fjdmedia.github.io/FJMedia" target="_blank" rel="noopener">FJMedia</a></div>
   </footer>
 
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta">
+    <a href="#tickets">Get Tickets &mdash; $10</a>
+  </div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
   <script>
-    const regularPrizes = [
-      'Prizes/FINAL/RegularPrize1.jpg','Prizes/FINAL/RegularPrize2.jpg',
-      'Prizes/FINAL/RegularPrize3.jpg','Prizes/FINAL/RegularPrize4.jpg',
-      'Prizes/FINAL/RegularPrize5.jpg','Prizes/FINAL/RegularPrize6.jpg',
-      'Prizes/FINAL/RegularPrize7.jpg','Prizes/FINAL/RegularPrize8.jpg',
-      'Prizes/FINAL/RegularPrize9.jpg','Prizes/FINAL/RegularPrize10.jpg',
-      'Prizes/FINAL/RegularPrize11.jpg','Prizes/FINAL/RegularPrize12.jpg',
-      'Prizes/FINAL/RegularPrize13.jpg','Prizes/FINAL/RegularPrize14.jpg',
-      'Prizes/FINAL/RegularPrize15.jpg','Prizes/FINAL/RegularPrize16.jpg',
-      'Prizes/FINAL/RegularPrize17.jpg','Prizes/FINAL/RegularPrize18.jpg'
-    ];
-    const grandPrizes = [
-      'Prizes/FINAL/GoldenTicket1.jpg',
-      'Prizes/FINAL/GrandPrize1.jpg','Prizes/FINAL/GrandPrize2.jpg',
-      'Prizes/FINAL/GrandPrize3.jpg','Prizes/FINAL/GrandPrize4.jpg',
-      'Prizes/FINAL/GrandPrize5.jpg','Prizes/FINAL/GrandPrize6.jpg',
-      'Prizes/FINAL/GrandPrize7.jpg','Prizes/FINAL/GrandPrize8.jpg',
-      'Prizes/FINAL/GrandPrize9.jpg','Prizes/FINAL/GrandPrize10.jpg',
-      'Prizes/FINAL/GrandPrize11.jpg','Prizes/FINAL/GrandPrize12.jpg',
-      'Prizes/FINAL/GrandPrize13.jpg','Prizes/FINAL/GrandPrize14.jpg',
-      'Prizes/FINAL/GrandPrize15.jpg','Prizes/FINAL/GrandPrize16.jpg'
-    ];
+    document.addEventListener('DOMContentLoaded', function() {
 
-    let current = 0;
-    let activePrizes = [];
-    const lb      = document.getElementById('lightbox');
-    const lbImg   = document.getElementById('lbImg');
-    const lbCount = document.getElementById('lbCounter');
+      // ── Lucide Icons ──
+      if (window.lucide) lucide.createIcons();
 
-    function openLb(arr, i) {
-      activePrizes = arr;
-      current = i;
-      lbImg.src = activePrizes[current];
-      lbCount.textContent = (current + 1) + ' / ' + activePrizes.length;
-      lb.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLb() {
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    function navigate(dir) {
-      current = (current + dir + activePrizes.length) % activePrizes.length;
-      lbImg.src = activePrizes[current];
-      lbCount.textContent = (current + 1) + ' / ' + activePrizes.length;
-    }
+      // ── Countdown Timer ──
+      const eventDate = new Date('2026-04-25T20:00:00-05:00').getTime();
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = eventDate - now;
+        if (diff <= 0) {
+          document.getElementById('countdown').innerHTML = '<div style="font-family:Great Vibes,cursive;font-size:2rem;color:var(--brown);">Tonight!</div>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cdDays').textContent = d;
+        document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+        document.getElementById('cdMins').textContent = String(m).padStart(2, '0');
+        document.getElementById('cdSecs').textContent = String(s).padStart(2, '0');
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
 
-    document.querySelectorAll('#prizesGrid .prize-card').forEach(card => {
-      card.addEventListener('click', () => openLb(regularPrizes, +card.dataset.index));
-    });
-    document.querySelectorAll('#grandPrizesGrid .prize-card, .golden-ticket').forEach(card => {
-      card.addEventListener('click', () => openLb(grandPrizes, +card.dataset.index));
-    });
-    document.getElementById('lbClose').addEventListener('click', closeLb);
-    document.getElementById('lbPrev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lbNext').addEventListener('click', () => navigate(1));
-    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-    // Prize filter buttons
-    const filterGroups = {
-      golden:  document.getElementById('goldenGroup'),
-      grand:   document.getElementById('grandGroup'),
-      regular: document.getElementById('regularGroup')
-    };
-    document.querySelectorAll('.prize-filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.prize-filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        Object.entries(filterGroups).forEach(([key, el]) => {
-          el.classList.toggle('hidden', key !== f);
-        });
-        // Scroll to prize area
-        document.getElementById('grand-prize').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // ── Mobile Nav ──
+      var hamburger = document.getElementById('navHamburger');
+      var overlay = document.getElementById('navOverlay');
+
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        overlay.classList.toggle('open');
+        document.body.style.overflow = overlay.classList.contains('open') ? 'hidden' : '';
       });
-    });
 
-    document.addEventListener('keydown', e => {
-      if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLb();
-      if (e.key === 'ArrowLeft') navigate(-1);
-      if (e.key === 'ArrowRight') navigate(1);
-    });
+      overlay.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('open');
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // ── Lightbox ──
+      var regularPrizes = [
+        '../Prizes/FINAL/RegularPrize1.jpg','../Prizes/FINAL/RegularPrize2.jpg',
+        '../Prizes/FINAL/RegularPrize3.jpg','../Prizes/FINAL/RegularPrize4.jpg',
+        '../Prizes/FINAL/RegularPrize5.jpg','../Prizes/FINAL/RegularPrize6.jpg',
+        '../Prizes/FINAL/RegularPrize7.jpg','../Prizes/FINAL/RegularPrize8.jpg',
+        '../Prizes/FINAL/RegularPrize9.jpg','../Prizes/FINAL/RegularPrize10.jpg',
+        '../Prizes/FINAL/RegularPrize11.jpg','../Prizes/FINAL/RegularPrize12.jpg',
+        '../Prizes/FINAL/RegularPrize13.jpg','../Prizes/FINAL/RegularPrize14.jpg',
+        '../Prizes/FINAL/RegularPrize15.jpg','../Prizes/FINAL/RegularPrize16.jpg',
+        '../Prizes/FINAL/RegularPrize17.jpg','../Prizes/FINAL/RegularPrize18.jpg'
+      ];
+      var grandPrizes = [
+        '../Prizes/FINAL/GoldenTicket1.jpg',
+        '../Prizes/FINAL/GrandPrize1.jpg','../Prizes/FINAL/GrandPrize2.jpg',
+        '../Prizes/FINAL/GrandPrize3.jpg','../Prizes/FINAL/GrandPrize4.jpg',
+        '../Prizes/FINAL/GrandPrize5.jpg','../Prizes/FINAL/GrandPrize6.jpg',
+        '../Prizes/FINAL/GrandPrize7.jpg','../Prizes/FINAL/GrandPrize8.jpg',
+        '../Prizes/FINAL/GrandPrize9.jpg','../Prizes/FINAL/GrandPrize10.jpg',
+        '../Prizes/FINAL/GrandPrize11.jpg','../Prizes/FINAL/GrandPrize12.jpg',
+        '../Prizes/FINAL/GrandPrize13.jpg','../Prizes/FINAL/GrandPrize14.jpg',
+        '../Prizes/FINAL/GrandPrize15.jpg','../Prizes/FINAL/GrandPrize16.jpg'
+      ];
+
+      var current = 0;
+      var activePrizes = [];
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lbImg');
+      var lbCount = document.getElementById('lbCounter');
+
+      function openLb(arr, i) {
+        activePrizes = arr;
+        current = i;
+        lbImg.src = activePrizes[current];
+        lbCount.textContent = (current + 1) + ' / ' + activePrizes.length;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        document.getElementById('lbClose').focus();
+      }
+      function closeLb() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      function navigate(dir) {
+        current = (current + dir + activePrizes.length) % activePrizes.length;
+        lbImg.src = activePrizes[current];
+        lbCount.textContent = (current + 1) + ' / ' + activePrizes.length;
+      }
+
+      document.querySelectorAll('#prizesGrid .prize-card').forEach(function(card) {
+        card.addEventListener('click', function() { openLb(regularPrizes, +card.dataset.index); });
+      });
+      document.querySelectorAll('#grandPrizesGrid .prize-card, .golden-ticket').forEach(function(card) {
+        card.addEventListener('click', function() { openLb(grandPrizes, +card.dataset.index); });
+      });
+      document.getElementById('lbClose').addEventListener('click', closeLb);
+      document.getElementById('lbPrev').addEventListener('click', function() { navigate(-1); });
+      document.getElementById('lbNext').addEventListener('click', function() { navigate(1); });
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+
+      // Prize filter buttons
+      var filterGroups = {
+        golden:  document.getElementById('goldenGroup'),
+        grand:   document.getElementById('grandGroup'),
+        regular: document.getElementById('regularGroup')
+      };
+      document.querySelectorAll('.prize-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var f = btn.dataset.filter;
+          document.querySelectorAll('.prize-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          Object.keys(filterGroups).forEach(function(key) {
+            filterGroups[key].classList.toggle('hidden', key !== f);
+          });
+          // Refresh GSAP reveals for newly visible cards
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+        });
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
+
+      // ── GSAP Animations ──
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reducedMotion) {
+
+        // Hero stagger entrance (FOIC: CSS hides .hero .gs-reveal, we show + animate)
+        var heroEls = document.querySelectorAll('.hero .gs-reveal');
+        heroEls.forEach(function(el) { el.style.visibility = 'visible'; });
+        gsap.from('.hero .gs-reveal', {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power2.out'
+        });
+
+        // Confetti burst
+        (function() {
+          var colors = ['#6B2D1A', '#D4AF37', '#DDD8D0', '#FAF8F4', '#8B4D3A'];
+          var ctr = document.createElement('div');
+          ctr.className = 'confetti-container';
+          document.body.appendChild(ctr);
+          for (var i = 0; i < 50; i++) {
+            var p = document.createElement('div');
+            p.className = 'confetti-piece';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.width = (Math.random() * 6 + 4) + 'px';
+            p.style.height = (Math.random() * 10 + 6) + 'px';
+            p.style.background = colors[Math.floor(Math.random() * colors.length)];
+            p.style.borderRadius = Math.random() > 0.5 ? '50%' : '1px';
+            p.style.animationDelay = (Math.random() * 2.5) + 's';
+            p.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+            ctr.appendChild(p);
+          }
+          setTimeout(function() { ctr.remove(); }, 6000);
+        })();
+
+        // Section labels + headings (gs-reveal outside hero — no CSS hiding, just animate)
+        document.querySelectorAll('section:not(.hero) .gs-reveal').forEach(function(el) {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+            y: 24,
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power1.out',
+            immediateRender: false
+          });
+        });
+
+        // Detail cards stagger
+        gsap.from('#details .detail-card', {
+          scrollTrigger: { trigger: '#details .details-strip', start: 'top 85%', once: true },
+          y: 30,
+          opacity: 0,
+          rotation: -3,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power1.out',
+          immediateRender: false
+        });
+
+        // Ticket type cards stagger
+        gsap.from('.ticket-type-card', {
+          scrollTrigger: { trigger: '.ticket-types', start: 'top 85%', once: true },
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power1.out',
+          immediateRender: false
+        });
+
+        // Ticket polaroid cards stagger
+        gsap.from('.ticket-card', {
+          scrollTrigger: { trigger: '.tickets-grid', start: 'top 85%', once: true },
+          y: 40,
+          opacity: 0,
+          scale: 0.92,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power2.out',
+          immediateRender: false
+        });
+
+        // Prize cards stagger (for filter-switched groups)
+        function animatePrizeCards(gridId) {
+          var cards = document.querySelectorAll('#' + gridId + ' .prize-card');
+          if (!cards.length) return;
+          gsap.from(cards, {
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.07,
+            ease: 'power1.out'
+          });
+        }
+
+        // Golden ticket entrance
+        var goldenCard = document.querySelector('.golden-ticket');
+        if (goldenCard) {
+          gsap.from(goldenCard, {
+            scrollTrigger: { trigger: goldenCard, start: 'top 85%', once: true },
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'back.out(1.5)',
+            immediateRender: false
+          });
+        }
+
+        // Animate prize cards when filter changes
+        document.querySelectorAll('.prize-filter-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var f = btn.dataset.filter;
+            setTimeout(function() {
+              if (f === 'grand') animatePrizeCards('grandPrizesGrid');
+              if (f === 'regular') animatePrizeCards('prizesGrid');
+            }, 50);
+          });
+        });
+
+        // Section dividers
+        document.querySelectorAll('.section-divider').forEach(function(el) {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+            scaleX: 0, opacity: 0, duration: 0.6, ease: 'power1.out', immediateRender: false
+          });
+        });
+
+        // Love note
+        var loveNote = document.querySelector('.love-note');
+        if (loveNote) {
+          gsap.from(loveNote, {
+            scrollTrigger: { trigger: loveNote, start: 'top 85%', once: true },
+            y: 20, opacity: 0, duration: 0.8, ease: 'power1.out', immediateRender: false
+          });
+        }
+
+        // Prize count-up
+        var countEl = document.getElementById('prizeCountNum');
+        if (countEl) {
+          countEl.textContent = '0';
+          var countObj = { val: 0 };
+          gsap.to(countObj, {
+            scrollTrigger: { trigger: '#prizes h2', start: 'top 85%', once: true },
+            val: 35,
+            duration: 1.8,
+            ease: 'power2.out',
+            snap: { val: 1 },
+            onUpdate: function() { countEl.textContent = Math.round(countObj.val) + '+'; }
+          });
+        }
+
+        // Contact card
+        gsap.from('.contact-card', {
+          scrollTrigger: { trigger: '.contact-card', start: 'top 85%', once: true },
+          y: 30,
+          opacity: 0,
+          rotation: 0.5,
+          duration: 0.7,
+          ease: 'power1.out',
+          immediateRender: false
+        });
+
+        } else {
+          // Reduced motion: show everything
+          document.querySelectorAll('.gs-reveal').forEach(function(el) {
+            el.style.visibility = 'visible';
+            el.style.opacity = '1';
+          });
+        }
+      } else {
+        // Fallback: if GSAP fails to load, show ALL elements
+        document.querySelectorAll('.gs-reveal').forEach(function(el) {
+          el.style.visibility = 'visible';
+          el.style.opacity = '1';
+        });
+      }
+
+    }); // end DOMContentLoaded
   </script>
 
 </body>
